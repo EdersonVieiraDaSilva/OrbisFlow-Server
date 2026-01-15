@@ -1,0 +1,46 @@
+OrbisFlow Server
+Comentarios: simbolo de atribuição "="
+             os comentatios se iniciam com //
+Inicio {
+
+variavel = requisicao_cliente
+variavel_2 = arquivo_solicitado
+
+//scanear a atividade na interface de rede do servidor 
+//Identificar quais dispositivos estão solicitando a conexão com o mesmo pelo aplicativo vlc e sua porta de serviço utilizada
+	scanear atividades da rede
+	checar todas as atividades da rede
+		se atividade da rede = vlc_porta8080 {
+			requisicao_cliente = atividade da rede
+			permitir/estabelecer conexão
+			analisar a velocidade do link e latência da conexão
+		}
+	
+
+//checar qual arquivo/video foi solicitado
+//os arquivos deverão estar em uma pasta especificada e de utilização exclusiva do programa (exemplo: Pasta_OrbisFlow)
+	scanear Pasta_OrbisFlow
+	checar todos os arquivos	
+		se arquivo scaneado = arquivo_solicitado {
+			calcular tamanho do arquivo
+				se (ou enquanto) velocidade da conexão = paramêtro aceitável //Aqui não sei qual estrutura condicional usar
+				{dividi-lo em partes
+				enviar as partes para o dispositivo cliente //buffer
+				ao finalizar o arquivo enviar mensagem de "Video finalizado" // Para evitar o loop de reprodução
+				mostrar mensagens "Ir para o início" ou "Selecionar outro Título"
+				}
+				senão {
+				diminuir a resolução do arquivo/video //para que esteja de acordo com a velocidade da conexão
+				dividi-lo em partes //proporcionais a velocidade
+				enviar as partes para o dispositivo cliente
+				ao finalizar o arquivo enviar mensagem de "Video finalizado"
+				mostrar mensagens "Ir para o início" ou "Selecionar outro Título"
+				}
+		}
+		senão {
+			enviar erro (404)
+		}
+	
+	
+	}
+Fim

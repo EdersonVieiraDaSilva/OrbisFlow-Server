@@ -1,0 +1,8 @@
+Funcionalidades de visualização de desempenho por meio de linha de comando no terminal:
+
+  - start orbisflow = inicia o programa
+  - finish = o finaliza
+  - exit = sai do modo visualização, porém o programa segue em funcionamento
+  - orbisflow = volta ao modo visualização
+  - show clients = mostra as solicitações dos clientes, o IP deles, bem como os videos que estão solicitando
+  - show data = mostra os dados que o programa está manipulando no momento. é uma forma de verificar se a RAM está sobrecarregada

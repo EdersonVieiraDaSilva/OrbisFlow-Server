@@ -1,0 +1,17 @@
+# Binários e Executáveis
+# (Não se sobe o arquivo pronto, pois cada um compila o seu)
+*.exe
+orbisflow
+orbisflow.exe
+
+# Logs de Sistema
+# (Logs contêm IPs e dados privados que não devem ser públicos)
+*.log
+orbisflow_access.log
+
+# Pasta de Mídias
+# (O GitHub não é para armazenar vídeos/músicas, apenas o código)
+Videos_OrbisFlow/
+
+# Configurações de ambiente ou IDE
+.vscode/
